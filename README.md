@@ -49,5 +49,5 @@ go test ./...
 # How do I use AI assistant for this project?
 I use a couple of AI tools to help me with this project:
 
-- I use a code editor with AI capabilities, such as Visual Studio Code with the GitHub Copilot extension, which provides code suggestions and helps me write code faster. 
-- I also use a ChatGPT to ask questions about programming concepts, get help with debugging, and receive explanations for complex code snippets.
+- I use a code editor with AI capabilities, such as Visual Studio Code with the `GitHub Copilot` extension, which provides code suggestions and helps me write code faster. 
+- I also use a `ChatGPT` to ask questions about programming concepts, get help with debugging, and receive explanations for complex code snippets.
