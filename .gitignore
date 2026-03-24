@@ -1,0 +1,5 @@
+results.txt
+__debug_*
+*.log
+*.log.*
+~*
