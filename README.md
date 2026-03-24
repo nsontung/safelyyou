@@ -45,3 +45,9 @@ go test ./...
 - `devices.csv`: A CSV file containing the initial device data to be loaded into the server.
 - `device-simulator-linux-amd64`: A binary file for simulating device heartbeats.
 - `results.txt`: A file where the output of the device simulator is stored.
+
+# How do I use AI assistant for this project?
+I use a couple of AI tools to help me with this project:
+
+- I use a code editor with AI capabilities, such as Visual Studio Code with the GitHub Copilot extension, which provides code suggestions and helps me write code faster. 
+- I also use a ChatGPT to ask questions about programming concepts, get help with debugging, and receive explanations for complex code snippets.
