@@ -28,6 +28,13 @@ func (ds *DataStore) CreateDevice(deviceID string) *model.Device {
 	return newDevice
 }
 
+func (ds *DataStore) GetDevice(deviceID string) (*model.Device, bool) {
+	ds.mu.RLock()
+	defer ds.mu.RUnlock()
+	device, exists := ds.data[deviceID]
+	return device, exists
+}
+
 func (ds *DataStore) UpdateHeartbeat(deviceID string, sentAt time.Time) bool {
 	ds.mu.Lock()
 	defer ds.mu.Unlock()

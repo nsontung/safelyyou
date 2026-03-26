@@ -5,12 +5,12 @@ import "time"
 type Device struct {
 	ID string
 
-	heartbeatCount int
-	firstHeartbeat time.Time
-	lastHeartbeat  time.Time
+	HeartbeatCount int
+	FirstHeartbeat time.Time
+	LastHeartbeat  time.Time
 
-	uploadCount int
-	uploadSum   int
+	UploadCount int
+	UploadSum   int
 }
 
 func NewDevice(id string) *Device {
@@ -18,23 +18,23 @@ func NewDevice(id string) *Device {
 }
 
 func (d *Device) RecordHeartbeat(t time.Time) {
-	if d.heartbeatCount == 0 {
-		d.firstHeartbeat = t
+	if d.HeartbeatCount == 0 {
+		d.FirstHeartbeat = t
 	}
 
-	d.lastHeartbeat = t
-	d.heartbeatCount++
+	d.LastHeartbeat = t
+	d.HeartbeatCount++
 }
 
 func (d *Device) RecordUpload(uploadTime int) {
-	d.uploadCount++
-	d.uploadSum += uploadTime
+	d.UploadCount++
+	d.UploadSum += uploadTime
 }
 
 func (d *Device) GetStats() (uptime, averageUploadTime float64) {
 	// Calculate uptime as the percentage of time the device has been active based on heartbeats
-	if d.heartbeatCount > 0 {
-		if d.heartbeatCount == 1 {
+	if d.HeartbeatCount > 0 {
+		if d.HeartbeatCount == 1 {
 			uptime = 100.0 // If there's only one heartbeat, we can consider the device as fully active
 		} else {
 			// Be aware of division by zero if the first and last heartbeat are the same
@@ -42,12 +42,12 @@ func (d *Device) GetStats() (uptime, averageUploadTime float64) {
 			// I think the formula should be like this
 			// uptime = (number of heartbeats) / (time between first and last heartbeat in minutes + 1) * 100
 			// We should add 1 minute. This way we avoid division by zero and also account for the fact that a single heartbeat should indicate some uptime.
-			uptime = float64(d.heartbeatCount) / (d.lastHeartbeat.Sub(d.firstHeartbeat).Minutes()) * 100
+			uptime = float64(d.HeartbeatCount) / (d.LastHeartbeat.Sub(d.FirstHeartbeat).Minutes()) * 100
 		}
 	}
 
-	if d.uploadCount > 0 {
-		averageUploadTime = float64(d.uploadSum) / float64(d.uploadCount)
+	if d.UploadCount > 0 {
+		averageUploadTime = float64(d.UploadSum) / float64(d.UploadCount)
 	}
 
 	return uptime, averageUploadTime

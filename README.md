@@ -28,8 +28,11 @@ The output of the device simulator will be stored in the `results.txt` file.
 ## Unit Testing
 To run the unit tests, use the following command:
 ```bash
-go test ./...
+go test -v ./...
 ```
+We have some testing files that cover the functionality of the device service, ensuring that the business logic is working as expected.
+- `service/device_service_test.go` contains unit tests for the device service, covering scenarios such as loading devices from a CSV file, handling device heartbeats, and managing device data.
+- `api_test.go` contains unit tests for the API endpoints, ensuring that the API responds correctly to various requests and handles edge cases appropriately.
 
 ## Project Structure
 - `main.go`: The entry point of the application, where the server is initialized and routes are defined.
@@ -38,7 +41,6 @@ go test ./...
 - `api/dto.go`: Contains the Data Transfer Object (DTO) definitions for the API requests and responses.
 - `api/utils.go`: Contains utility functions for the API, such as parsing csv files.
 - `service/device_service.go`: Contains the business logic for managing devices, including loading devices from a CSV file and handling device heartbeats.
-- `service/device_service_test.go`: Contains unit tests for the device service.
 - `syerror/syerror.go`: Defines custom error types for the application.
 - `store/data_store.go`: Contains the `DataStore` struct and methods for managing device data.
 - `model/device.go`: Defines the `Device` struct and related methods.
