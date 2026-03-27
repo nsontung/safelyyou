@@ -1,7 +1,7 @@
 # SafelyYou API Server
 
 ## Introduction
-This project implements a server for the SafelyYou API, which provides endpoints for managing users, devices, and alerts. The server is built using the Gin-Gonic router.
+This project implements a server for the SafelyYou API, which provides endpoints for managing device uptime and upload speed. The server is built using the Gin-Gonic router.
 
 ## Setup
 1. To run the server, ensure you have Go installed and set up on your machine.
